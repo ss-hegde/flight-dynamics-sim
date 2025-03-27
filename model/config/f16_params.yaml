@@ -1,0 +1,11 @@
+mass: 9295.44     # kg
+gravity: 9.81     # m/s^2
+S: 27.87          # m^2
+b: 9.144          # wingspan (m)
+c: 3.45           # mean aerodynamic chord (m)
+rho: 1.225        # air density at sea level (kg/m^3)
+
+Ixx: 12875.0      # kg·m²
+Iyy: 75673.6
+Izz: 85552.1
+Ixz: 1331.4
