@@ -18,8 +18,8 @@ from simulation.live_plot import LivePlotter
 
 # Flags
 USE_JOYSTICK = True
-PLOT_STATES = False
-STREAM_TO_FLIGHTGEAR = True
+PLOT_STATES = True
+STREAM_TO_FLIGHTGEAR = False
 
 def load_params(path):
     with open(path, 'r') as f:

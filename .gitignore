@@ -9,4 +9,8 @@ simulation/simulate_roll_control.py
 simulation/simulate_roll_damper.py
 simulation/simulate_yaw_damper.py
 
-pyproject.toml
+# pyproject.toml
+
+# Ignore the build directory
+dist
+*.egg-info

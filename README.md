@@ -25,13 +25,12 @@ A modular and extensible flight dynamics simulator for fixed-wing aircraft, feat
 ## Repository Structure
 
 flight-dynamics-sim/
-├── `model/`                    # Nonlinear and linearized aircraft dynamics
-├── `control/`                  # Controllers and stability augmentation logic
-├── `trim_and_linearization/`   # Trim and linearization routines
-├── `simulation/`               # Scripts for running open/closed-loop simulations
-├── `flightgear_interface/`     # FlightGear streaming and setup
-├── `governing_equations/`      # Integration schemes
-└── README.md
+`model/`: Nonlinear and linearized aircraft dynamics
+`control/`: Controllers and stability augmentation logic
+`trim_and_linearization/`: Trim and linearization routines
+`simulation/`: Scripts for running open/closed-loop simulations
+`flightgear_interface/`: FlightGear streaming and setup
+`governing_equations/`: Integration schemes
 
 ---
 ### Joystick Control & Real-Time Visualization
