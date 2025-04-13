@@ -1,0 +1,38 @@
+mass: 120000
+gravity: 9.80665 # m/s^2
+rho: 1.225 # kg/m^3 (air density at sea level)
+S: 260.0 # Wing planform area (m^2)
+St: 64.0 # Tail planform area (m^2)
+cbar: 6.6 # Mean aerodynamic chord (m)
+lt: 24.8 # Distance between wing and tail aerodynamic centers (m)
+X_G: 1.518 # Center of gravity location in X direction (m)
+X_ac: 0.792 # Aerodynamic center location in X direction (m)
+Y_G: 0.0 # Center of gravity location in Y direction (m)
+Y_ac: 0.0 # Aerodynamic center location in Y direction (m)
+Z_G: 0.66 # Center of gravity location in Z direction (m)
+Z_ac: 0.0 # Aerodynamic center location in Z direction (m)
+X_A_P_T1: 0.0 # Location of the first engine in X direction (m)
+X_A_P_T2: 0.0 # Location of the second engine in X direction (m)
+Y_A_P_T1: -7.94 # Location of the first engine in Y direction (m)
+Y_A_P_T2: 7.94 # Location of the second engine in Y direction (m)
+Z_A_P_T1: -1.9 # Location of the first engine in Z direction (m)
+Z_A_P_T2: -1.9 # Location of the second engine in Z direction (m)
+I_XX: 40.07 # Moment of inertia about the X axis (kg*m^2)
+I_YY: 64.0 # Moment of inertia about the Y axis (kg*m^2)
+I_ZZ: 99.92 # Moment of inertia about the Z axis (kg*m^2)
+I_XY: 0.0
+I_XZ: -2.0923 
+I_YX: 0.0
+I_YZ: 0.0
+I_ZX: -2.0923
+I_ZY: 0.0
+Inv_I_XX: 0.0249836 # Inverse of moment of inertia about the X axis (1/(kg*m^2))
+Inv_I_YY: 0.015625 # Inverse of moment of inertia about the Y axis (1/(kg*m^2))
+Inv_I_ZZ: 0.010002 # Inverse of moment of inertia about the Z axis (1/(kg*m^2))
+Inv_I_XY: 0.0
+Inv_I_XZ: 0.000523151
+Inv_I_YX: 0.0
+Inv_I_YZ: 0.0
+Inv_I_ZX: 0.000523151
+Inv_I_ZY: 0.0
+

@@ -3,3 +3,10 @@
 
 # Ignore the cache
 __pycache__/
+
+# Ignore incomplete files
+simulation/simulate_roll_control.py
+simulation/simulate_roll_damper.py
+simulation/simulate_yaw_damper.py
+
+pyproject.toml

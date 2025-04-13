@@ -4,10 +4,10 @@ import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
-from model.simplified_nonlinear_6dof_model import f16_dynamics
+from model.nonlinear_6DOF_aircraft_model import aircraft_dynamics
 
 
-def trim_f16(params, target_u=150.0, initial_guess=None, debug=False):
+def trim_aircraft(params, target_u=85.0, initial_guess=None, debug=False):
     """
     Perform trim for level, steady flight at given airspeed.
     Only optimize angle of attack (alpha), elevator (d_eta), and throttle (d_T).
@@ -28,11 +28,11 @@ def trim_f16(params, target_u=150.0, initial_guess=None, debug=False):
             u, 0.0, w,
             0.0, 0.0, 0.0,
             0.0, alpha, 0.0,
-            0.0, 0.0, -1000.0
+            0.0, 0.0, 3000.0*0.2808
         ])
         u_input = np.array([d_eta, 0.0, 0.0, d_T])
 
-        x_dot = f16_dynamics(x, u_input, params)
+        x_dot = aircraft_dynamics(x, u_input, params)
 
         # Only minimize u̇, ẇ, q̇
         cost_vector = np.array([x_dot[0], x_dot[2], x_dot[4]])
@@ -71,7 +71,7 @@ def trim_f16(params, target_u=150.0, initial_guess=None, debug=False):
 
 
 
-def trim_f16_full(params, target_u=150.0, initial_guess=None, debug=False):
+def trim_aircraft_full(params, target_u=150.0, initial_guess=None, debug=False):
     """
     Full 6-DOF trim for steady, level flight.
     Optimizes: [α, φ, v, p, r, δe, δa, δr, δT]
@@ -83,7 +83,7 @@ def trim_f16_full(params, target_u=150.0, initial_guess=None, debug=False):
         initial_guess = [0.05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7]
 
     def trim_cost(x_opt):
-        alpha, phi, v, p, r, de, da, dr, dt = x_opt
+        alpha, phi, v, p, r, de, da, dr, dt1, dt2 = x_opt
 
         # Forward and vertical velocities from alpha
         u = target_u * np.cos(alpha)
@@ -96,9 +96,9 @@ def trim_f16_full(params, target_u=150.0, initial_guess=None, debug=False):
             phi, alpha, 0.0, # Euler angles: phi, theta, psi
             0.0, 0.0, -1000.0
         ])
-        u_input = np.array([de, da, dr, dt])
+        u_input = np.array([de, da, dr, dt1, dt2])
 
-        x_dot = f16_dynamics(x, u_input, params)
+        x_dot = aircraft_dynamics(x, u_input, params)
 
         # Minimize body-axis accelerations: u̇, v̇, ẇ, ṗ, q̇, ṙ
         cost_vector = x_dot[[0, 1, 2, 3, 4, 5]]
